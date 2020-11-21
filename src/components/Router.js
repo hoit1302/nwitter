@@ -5,16 +5,16 @@ import Home from "routes/Home";
 import Profile from "routes/Profile";
 import Navigation from "components/Navigation";
 
-const AppRouter = ({ isLoggedIn }) => {
+const AppRouter = ({ isLoggedIn, userObj }) => {
     return (
         <Router>
-            {isLoggedIn && <Navigation />} 
+            {isLoggedIn && <Navigation />}
             {/* Navigation이 존재하려면, isLoggedIn이 true 값이여야 한다는 뜻 */}
             <Switch>
                 {isLoggedIn ? (
                     <>
                         <Route exact path="/">
-                            <Home />
+                            <Home userObj={userObj} />
                         </Route>
                         <Route exact path="/profile">
                             <Profile />

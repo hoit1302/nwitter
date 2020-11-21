@@ -1,6 +1,7 @@
 // Firebase App (the core Firebase SDK) is always required and must be listed first
 import firebase from "firebase/app";
 import "firebase/auth";
+import "firebase/firestore";
 
 const firebaseConfig = {
     // 키 값을 직접 써주지 않는 이유는 키 들을 github에 올리고 싶지 않아서이다.
@@ -20,3 +21,4 @@ firebase.initializeApp(firebaseConfig);
 
 export const firebaseInstance = firebase;
 export const authService = firebase.auth();
+export const dbService = firebase.firestore();

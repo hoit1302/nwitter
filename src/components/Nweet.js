@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { dbService } from "fbase";
 
 const Nweet = ({ nweetObj, isOwner }) => {
-    const [editing, setEditing] = useState(false);
-    const [newNweet, setNewNweet] = useState(nweetObj.text);
+    const [editing, setEditing] = useState(false); // nweet을 수정하고 있는지 아닌지?
+    const [newNweet, setNewNweet] = useState(nweetObj.text); // 수정하는 nweet
     const onDeleteClick = async () => {
         const ok = window.confirm("Are you sure you want to delete this nweet?");
         if (ok) {
@@ -29,28 +29,35 @@ const Nweet = ({ nweetObj, isOwner }) => {
         <div>
             {editing ? (
                 <>
-                    <form onSubmit={onSubmit}>
-                        <input
-                            type="text"
-                            placeholder="Edit your nweet"
-                            value={newNweet}
-                            required
-                            onChange={onChange}
-                        />
-                        <input type="submit" value="Update Nweet" />
-                    </form>
-                    <button onClick={toggleEditing}>Cancel</button>
-                </>
-            ) : (
-                <>
-                    <h4>{nweetObj.text}</h4>
+                    {/* 수정하고 있고 */}
+
                     {isOwner && (
                         <>
-                            <button onClick={onDeleteClick}>Delete Nweet</button>
-                            <button onClick={toggleEditing}>Edit Nweet</button>
+                        {/* 주인이라면 form을 보여줘 */}
+                            <form onSubmit={onSubmit}>
+                                <input
+                                    type="text"
+                                    placeholder="Edit your nweet"
+                                    value={newNweet}
+                                    required
+                                    onChange={onChange}
+                                />
+                                <input type="submit" value="Update Nweet" />
+                            </form>
+                            <button onClick={toggleEditing}>Cancel</button>
                         </>
                     )}
-                </>)
+                </>
+            ) : (
+                    <>
+                        <h4>{nweetObj.text}</h4>
+                        {isOwner && (
+                            <>
+                                <button onClick={onDeleteClick}>Delete Nweet</button>
+                                <button onClick={toggleEditing}>Edit Nweet</button>
+                            </>
+                        )}
+                    </>)
             }
         </div>
     )

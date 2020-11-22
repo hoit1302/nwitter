@@ -3,7 +3,7 @@ import { dbService } from "fbase";
 import Nweet from "components/Nweet";
 
 const Home = ({ userObj }) => {
-    const [nweet, setNweet] = useState("");
+    const [nweet, setNweet] = useState(""); // 입력받는 nweet
     const [nweets, setNweets] = useState([]);
 
     useEffect(() => {
@@ -39,6 +39,8 @@ const Home = ({ userObj }) => {
             </form>
             <div>
                 {nweets.map((nweet) => (
+                    // Nweet component는 2개의 props(nweetObj, isOwner)을 가짐
+                    // nweetObj는 nweet의 모든 데이터이고 - text, createdAt, creatorId
                     <Nweet key={nweet.id} nweetObj={nweet} isOwner={nweet.creatorId === userObj.uid} />
                 ))}
             </div>

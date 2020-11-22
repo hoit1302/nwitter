@@ -22,7 +22,7 @@ const Home = ({ userObj }) => {
     const onSubmit = async (event) => {
         event.preventDefault();
         let attachmentUrl = "";
-        if (attachment != "") {
+        if (attachment !== "") {
             const attachmentRef = storageService.ref().child(`${userObj.uid}/${uuidv4()}`); // 1. 파일에 대한 reference를 만든다. 파일 업로드. 보통 child에 image의 path를 넣는데, 이는 folder를 만듦, uuid는 랜덤으로 이름생성함. npm install uuid하고 import 해주어야함
             const response = await attachmentRef.putString(attachment, "data_url"); // 2. 파일 데이터를 reference로 보냄.
             attachmentUrl = await response.ref.getDownloadURL(); // 3. url 다운로드하고 문자열 다운로드받은 url로 업데이트, 문서를 보면 reference안에 있기에! - 잘 봐야 함, promise를 return (기달려달란 의미)하기에 await
@@ -44,14 +44,15 @@ const Home = ({ userObj }) => {
         setNweet(value);
     };
     const onFileChange = (event) => {
+        
         const { target: { files }, } = event;
         const theFile = files[0];
-        const reader = new FileReader();
-        reader.onloadend = (finishedEvent) => { // # 이게 실행됨.
+        const reader = new FileReader(); // fileReader의 API를 사용해서 파일 읽기
+        reader.onloadend = (finishedEvent) => { // #2 이게 실행됨.
             const { currentTarget: { result }, } = finishedEvent;
             setAttachment(result); // attachment의 string은 이미지 전체.
         };
-        reader.readAsDataURL(theFile); // #이게 끝나면 
+        reader.readAsDataURL(theFile); // #1 이게 끝나면 
     };
     const onClearAttachment = () => setAttachment(null);
     return (

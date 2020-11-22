@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { dbService } from "fbase";
+import { dbService, storageService } from "fbase";
 
 const Nweet = ({ nweetObj, isOwner }) => {
     const [editing, setEditing] = useState(false); // nweet을 수정하고 있는지 아닌지?
@@ -8,6 +8,9 @@ const Nweet = ({ nweetObj, isOwner }) => {
         const ok = window.confirm("Are you sure you want to delete this nweet?");
         if (ok) {
             await dbService.doc(`nweets/${nweetObj.id}`).delete();
+            await storageService.refFromURL(nweetObj.attachmentUrl).delete();
+            // document를 수정하거나 삭제할 때에도 reference의 요소가 필요해!!!
+            // firebase로 url을 보내고 storage 안에서 reference를 찾아
         }
     };
     const toggleEditing = () => setEditing((prev) => !prev);

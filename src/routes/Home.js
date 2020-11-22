@@ -23,7 +23,7 @@ const Home = ({ userObj }) => {
             text: nweet,
             createdAt: Date.now(),
             creatorId: userObj.uid,
-        });
+        }); // nweet의 모양
         setNweet("");
     };
     const onChange = (event) => {

@@ -1,24 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { dbService } from "fbase";
+import Nweet from "components/Nweet";
 
 const Home = ({ userObj }) => {
     const [nweet, setNweet] = useState("");
     const [nweets, setNweets] = useState([]);
-    // for each를 사용한 옛날 방법(?)
-    // const getNweets = async () => {
-    //     const dbNweets = await dbService.collection("nweets").get();
-    //     dbNweets.forEach((document) => {
-    //         const nweetObject = {
-    //             ...document.data(), // es6, spread attribute 기능
-    //             id: document.id,
-    //         };
-    //         setNweets((prev) => [nweetObject, ...prev]);
-    //         // set이 붙은 함수의 경우, 값 대신에 함수를 전달할 수 있다.
-    //         // 만약 함수를 전달하면, 리액트는 이전 값에 접근할 수 있게 해준다.
-    //     });
-    // };
+
     useEffect(() => {
-        // getNweets();
+
         dbService.collection("nweets").onSnapshot((snapshot) => {
             const nweetArray = snapshot.docs.map((doc) => ({
                 id: doc.id,
@@ -50,9 +39,7 @@ const Home = ({ userObj }) => {
             </form>
             <div>
                 {nweets.map((nweet) => (
-                    <div key={nweet.id}>
-                        <h4>{nweet.text}</h4>
-                    </div>
+                    <Nweet key={nweet.id} nweetObj={nweet} isOwner={nweet.creatorId === userObj.uid} />
                 ))}
             </div>
         </div>

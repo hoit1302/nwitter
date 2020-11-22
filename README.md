@@ -2,6 +2,13 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## 실행법
+git clone or download this code.
+terminal에서 npm install로 필요한 모듈과 패키지들을 (?) 다운 받고
+npm start로 실행하면 볼 수 있다.
+
+여담, coding 하다가 error가 나서 3시간동안 고쳐보다가 때려칠 뻔 했지만 다시 다운 받는 걸로 그냥 해결했다.
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -68,3 +75,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+

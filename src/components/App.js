@@ -11,19 +11,30 @@ function App() {
         // event Listener,  user의 변화 관찰
         authService.onAuthStateChanged((user) => { // 로그아웃, 로그인, 계정 생성, firebase 초기화 시
             if (user) {
-                setUserObj(user);
-            } 
+                setUserObj({
+                    displayName: user.displayName,
+                    uid: user.uid,
+                    updateProfile: (args) => user.updateProfile(args),
+                });
+            }
             setInit(true);
         });
     }, []);
-
+    const refreshUser = () => {
+        const user = authService.currentUser;
+        setUserObj({
+            displayName: user.displayName,
+            uid: user.uid,
+            updateProfile: (args) => user.updateProfile(args),
+        });
+    };
 
     return (
         <>
             {/* router에게 상태 전달, init이 false일 때 router 감추기 */}
             {init ? (
-                <AppRouter isLoggedIn={Boolean(userObj)} userObj={userObj} />
-            ) : ( "Initializing..." )}
+                <AppRouter refreshUser={refreshUser} isLoggedIn={Boolean(userObj)} userObj={userObj} />
+            ) : ("Initializing...")}
             <footer>
                 &copy; {new Date().getFullYear()} Nwitter
             </footer>

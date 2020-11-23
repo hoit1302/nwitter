@@ -8,7 +8,7 @@ import Navigation from "components/Navigation";
 const AppRouter = ({ isLoggedIn, userObj }) => {
     return (
         <Router>
-            {isLoggedIn && <Navigation />}
+            {isLoggedIn && <Navigation userObj={userObj} />}
             {/* Navigation이 존재하려면, isLoggedIn이 true 값이여야 한다는 뜻 */}
             <Switch>
                 {isLoggedIn ? (

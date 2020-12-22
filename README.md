@@ -1,9 +1,9 @@
 # Nwitter - clone coding
-
+[공부링크](https://nomadcoders.co/nwitter)
 ## local 실행법
 git clone or download this code.<br>
 npm install<br>
-.env (환경변수 파일 작성)
+.env (환경변수 파일 작성)<br>
 npm start<br>
 <br>
 

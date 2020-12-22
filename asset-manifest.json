@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "https://hoit1302.github.io/nwitter/static/css/main.7a2afaaa.chunk.css",
-    "main.js": "https://hoit1302.github.io/nwitter/static/js/main.398d1fea.chunk.js",
-    "main.js.map": "https://hoit1302.github.io/nwitter/static/js/main.398d1fea.chunk.js.map",
+    "main.css": "https://hoit1302.github.io/nwitter/static/css/main.e4db6d8a.chunk.css",
+    "main.js": "https://hoit1302.github.io/nwitter/static/js/main.00aef8aa.chunk.js",
+    "main.js.map": "https://hoit1302.github.io/nwitter/static/js/main.00aef8aa.chunk.js.map",
     "runtime-main.js": "https://hoit1302.github.io/nwitter/static/js/runtime-main.628dca70.js",
     "runtime-main.js.map": "https://hoit1302.github.io/nwitter/static/js/runtime-main.628dca70.js.map",
     "static/js/2.a6759c9f.chunk.js": "https://hoit1302.github.io/nwitter/static/js/2.a6759c9f.chunk.js",
     "static/js/2.a6759c9f.chunk.js.map": "https://hoit1302.github.io/nwitter/static/js/2.a6759c9f.chunk.js.map",
     "index.html": "https://hoit1302.github.io/nwitter/index.html",
-    "static/css/main.7a2afaaa.chunk.css.map": "https://hoit1302.github.io/nwitter/static/css/main.7a2afaaa.chunk.css.map",
+    "static/css/main.e4db6d8a.chunk.css.map": "https://hoit1302.github.io/nwitter/static/css/main.e4db6d8a.chunk.css.map",
     "static/js/2.a6759c9f.chunk.js.LICENSE.txt": "https://hoit1302.github.io/nwitter/static/js/2.a6759c9f.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.628dca70.js",
     "static/js/2.a6759c9f.chunk.js",
-    "static/css/main.7a2afaaa.chunk.css",
-    "static/js/main.398d1fea.chunk.js"
+    "static/css/main.e4db6d8a.chunk.css",
+    "static/js/main.00aef8aa.chunk.js"
   ]
 }

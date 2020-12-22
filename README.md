@@ -3,6 +3,7 @@
 ## local 실행법
 git clone or download this code.<br>
 npm install<br>
+.env (환경변수 파일 작성)
 npm start<br>
 <br>
 
